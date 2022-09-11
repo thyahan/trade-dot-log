@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { FC, ReactNode } from "react";
-import SideMenu from "./SideMenu";
+
+const SideMenu = dynamic(() => import("components/SideMenu"), { ssr: false });
 
 type Props = {
   head?: {
@@ -22,7 +24,7 @@ const Layout: FC<Props> = ({ children, head }) => {
         <div className="rounded-lg h-full bg-gradient-to-r from-slate-700 to bg-slate-600">
           <SideMenu />
         </div>
-        <main className="w-full rounded-lg bg-slate-600 overflow-y-auto">{children}</main>
+        <main className="w-full p-4 rounded-lg bg-slate-600 overflow-y-auto">{children}</main>
       </div>
     </div>
   );

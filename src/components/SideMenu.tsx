@@ -26,6 +26,8 @@ type MenuItem = {
 const SideMenu = () => {
   const [stage, setStage] = useLocalStorage("side-menu", "maximize");
 
+  console.log("stage: ", stage)
+
   const isMaximize = stage === "maximize";
 
   const menus: MenuItem[] = [

@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-type SetState = () => void;
-
 const useLocalStorage = (key: string, defaultValue: string): [string, (s: string) => void] => {
   const [state, setState] = useState(() => {
     if (typeof window === "undefined") return defaultValue;
